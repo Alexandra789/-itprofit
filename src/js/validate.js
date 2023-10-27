@@ -1,37 +1,46 @@
+import {sendForm} from './actionForm';
+
 const REGEXP_EMAIL = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 const formInputWrappers = document.querySelectorAll('.input-wrapper');
-const formBtn = document.querySelector('.form__btn');
-const inputEmail = document.querySelector('#inputEmail');
+const form = document.querySelector('#form');
 const errorTextRequiredFields = 'Поле должно быть заполнено';
 const errorTextEmail = 'Поле заполнено неккоректно';
-formBtn.addEventListener('click', (e) => {
+
+form.addEventListener('submit', (e) => {
 	e.preventDefault();
+	let errorCount = formValidate();
+	if (!errorCount) {
+		sendForm();
+	}
+})
+
+const formValidate = () => {
+	let errorCount = 0;
+
+	const checkEmailValidate = (inputEmail, field, error) => {
+		let isCorrectEmail = REGEXP_EMAIL.test(inputEmail.value);
+		isCorrectEmail ? removeError(field, error) : addError(field, error, errorTextEmail);
+	}
+
+	const addError = (field, error, textError) => {
+		field.classList.add('error');
+		error.innerText = textError;
+		errorCount++
+	}
+
+	const removeError = (field, error) => {
+		field.classList.remove('error');
+		error.innerText = '';
+	}
 
 	formInputWrappers.forEach(field => {
 		const input = field.querySelector('.form__input');
 		const error = field.querySelector('.form__error');
-		!input.value ? addError(field, error, errorTextRequiredFields) : removeError(field, error);
+		!input.value.trim() ? addError(field, error, errorTextRequiredFields) : removeError(field, error);
+		if (input.classList.contains('email') && input.value.trim()) {
+			checkEmailValidate(input, field, error);
+		}
 	});
-
-	if (inputEmail.value) {
-		const [isCorrectEmail, field, error] = checkEmailValidate();
-		isCorrectEmail ? removeError(field, error) : addError(field, error, errorTextEmail);
-	}
-})
-
-const checkEmailValidate = () => {
-	const isCorrectEmail = REGEXP_EMAIL.test(inputEmail.value);
-	const field = inputEmail.parentElement;
-	const error = inputEmail.parentElement.querySelector('.form__error');
-	return [isCorrectEmail, field, error];
-}
-
-const addError = (field, error, textError) => {
-	field.classList.add('error');
-	error.innerText = textError;
-}
-const removeError = (field, error) => {
-	field.classList.remove('error');
-	error.innerText = '';
+	return errorCount;
 }
