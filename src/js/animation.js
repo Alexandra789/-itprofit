@@ -1,6 +1,6 @@
-const formFields = document.querySelectorAll('.field');
+const formInputWrappers = document.querySelectorAll('.input-wrapper');
 
-formFields.forEach(field => {
+formInputWrappers.forEach(field => {
 	field.addEventListener('click', (e) => {
 		const currentField = e.currentTarget;
 		labelAnimation(currentField)
@@ -8,8 +8,8 @@ formFields.forEach(field => {
 })
 
 const labelAnimation = (currentField) => {
-	const input = currentField.children[0];
-	const label = currentField.children[1];
+	const input = currentField.querySelector('.form__input');
+	const label = currentField.querySelector('.form__label');
 	input.focus();
 	input.oninput = () => {
 		input.value ? label.classList.add('top') : label.classList.remove('top');
