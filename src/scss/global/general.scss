@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: $black;
+}
+
+a, button {
+	transition: all .3s;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style-type: none;
+}
+
+img {
+	width: 100%;
+	display: block;
+	height: 100%;
+	object-fit: contain;
+}
+
+button{
+	background: none;
+	border: none;
+	cursor: pointer;
+	font: inherit;
+	outline: none;
+	padding: 0;
+}
+
+button.disabled {
+	background: $gray-light;
+	cursor: auto;
+}
+
+.btn {
+	background: linear-gradient(231.58deg,$orange -53.35%,$yellow 297.76%);
+	border-radius: 30px;
+	color: $white;
+	letter-spacing: .2px;
+	text-align: center;
+	text-transform: uppercase;
+}
