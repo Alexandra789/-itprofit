@@ -1,9 +1,10 @@
 .contact-us {
-	background: linear-gradient(231.58deg, $orange -53.35%, $yellow 297.76%);
+	background: linear-gradient(231.58deg, $red -53.35%, $orange 297.76%);
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0 16px;
 
 	.form-wrapper {
 		max-width: 528px;
@@ -11,17 +12,20 @@
 		border-radius: 16px;
 		padding: 50px 56px 56px;
 		width: 100%;
+		@media (max-width: 576px) {
+			padding: 30px 16px 36px;
+		}
 	}
 
 	&__title {
 		font-weight: 700;
-		font-size: 24px;
+		font-size: 26px;
 		line-height: 30px;
 		margin-bottom: 32px;
 	}
 
 	.form {
-		.field {
+		.input-wrapper {
 			position: relative;
 			margin-bottom: 36px;
 			width: 100%;
@@ -31,40 +35,15 @@
 			height: 56px;
 			cursor: pointer;
 
-			&__input {
-				margin-top: 8px;
-				width: 100%;
-				padding: 15px 12px 5px;
-				font-size: 14px;
-				line-height: 18px;
-			}
-
-			&__label {
-				position: absolute;
-				left: 12px;
-				top: 19px;
-				transition: top 0.2s;
-				cursor: pointer;
-				pointer-events: none;
-			}
-
-			&__error {
-				font-weight: 500;
-				font-size: 12px;
-				line-height: 16px;
-				letter-spacing: 0.2px;
-				margin-top: 20px;
-				margin-bottom: 32px;
-				margin-left: 12px;
+			&:last-child {
+				margin-bottom: 0;
 			}
 
 			&-textarea {
 				height: 120px;
+				padding-top: 15px;
 
-				.field__input {
-					//padding-top: 25px;
-					//margin-top: 0;
-					//padding-top: 30px;
+				.form__input {
 					margin-top: 12px;
 					padding-top: 0;
 					height: 80px;
@@ -73,7 +52,38 @@
 			}
 		}
 
-		.field__input:focus + .field__label, .field__label.top {
+		.input-wrapper.error {
+			border-color: $red;
+		}
+
+		&__input {
+			margin-top: 11px;
+			width: 100%;
+			padding: 15px 12px 5px;
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		&__label {
+			position: absolute;
+			left: 12px;
+			top: 19px;
+			transition: top 0.2s;
+			cursor: pointer;
+			pointer-events: none;
+		}
+
+		&__error {
+			font-weight: 500;
+			font-size: 12px;
+			line-height: 16px;
+			letter-spacing: 0.2px;
+			margin-top: 12px;
+			margin-bottom: 32px;
+			color: $red;
+		}
+
+		.form__input:focus + .form__label, .form__label.top {
 			top: 6px;
 			font-weight: 500;
 			font-size: 12px;
@@ -82,16 +92,13 @@
 			color: $gray;
 		}
 
-		.field-textarea {
-			padding-top: 15px;
+		&__btn {
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 24px;
+			padding: 14px 8px;
+			width: 100%;
+			margin-top: 18px;
 		}
-	}
-
-	&__btn {
-		font-size: 16px;
-		font-weight: 600;
-		line-height: 24px;
-		padding: 14px 8px;
-		width: 100%;
 	}
 }
