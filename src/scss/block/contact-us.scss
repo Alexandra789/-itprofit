@@ -1,10 +1,11 @@
 .contact-us {
 	background: linear-gradient(231.58deg, $red -53.35%, $orange 297.76%);
-	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 32px 16px;
+	flex-direction: column;
+	gap: 32px;
 
 	.form-wrapper {
 		max-width: 528px;
@@ -12,6 +13,7 @@
 		border-radius: 16px;
 		padding: 50px 56px 56px;
 		width: 100%;
+		min-height: 670px;
 		@media (max-width: 576px) {
 			padding: 30px 16px 36px;
 		}
