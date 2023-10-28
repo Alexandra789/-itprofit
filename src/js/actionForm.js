@@ -1,8 +1,8 @@
 import {API} from './api';
 import {createNotification} from "./notification";
 
+const form = document.querySelector('#form');
 export const sendForm = async () => {
-	const form = document.querySelector('#form');
 	form.classList.add('sending');
 	const response = await API();
 	if (response.ok) {

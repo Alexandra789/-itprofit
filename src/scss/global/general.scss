@@ -20,6 +20,11 @@ body {
 	font-style: normal;
 	font-weight: 400;
 	color: $black;
+	background: linear-gradient(231.58deg, $red -53.35%, $orange 297.76%);
+
+	&.hidden {
+		overflow: hidden;
+	}
 }
 
 a, button {
