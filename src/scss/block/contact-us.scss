@@ -6,6 +6,7 @@
 	padding: 32px 16px;
 	flex-direction: column;
 	gap: 32px;
+	height: 100%;
 
 	.form-wrapper {
 		max-width: 528px;
@@ -14,6 +15,7 @@
 		padding: 50px 56px 56px;
 		width: 100%;
 		min-height: 670px;
+
 		@media (max-width: 576px) {
 			padding: 30px 16px 36px;
 		}
@@ -114,6 +116,7 @@
 		background: #00000063 url("https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif") center / 50px no-repeat;
 		opacity: 0;
 		visibility: hidden;
+		z-index: 99;
 	}
 
 	.form.sending::after {

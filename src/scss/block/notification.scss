@@ -15,11 +15,6 @@
 	justify-content: center;
 	flex-direction: row-reverse;
 	gap: 8px;
-	@media (max-height: 750px) {
-		-webkit-box-shadow: 0 0 5px 0 $gray;
-		-moz-box-shadow: 0 0 5px 0 $gray;
-		box-shadow: 0 0 5px 0 $gray;
-	}
 
 	&__image {
 		width: 20px;

@@ -21,6 +21,10 @@
 		border-radius: 32px;
 		max-width: 550px;
 		width: 100%;
+		z-index: 99;
+		@media (max-width: 582px) {
+			width: 95%;
+		}
 	}
 
 	&__title {
@@ -33,7 +37,6 @@
 		font-size: 14px;
 		line-height: 21px;
 		margin-bottom: 8px;
-		text-align: justify;
 
 		&:last-child {
 			margin-bottom: 0;
