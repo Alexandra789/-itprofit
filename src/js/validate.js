@@ -4,8 +4,8 @@ const REGEXP_EMAIL = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@((
 
 const formInputWrappers = document.querySelectorAll('.input-wrapper');
 const form = document.querySelector('#form');
-const errorTextRequiredFields = 'Поле должно быть заполнено';
-const errorTextEmail = 'Поле заполнено неккоректно';
+const errorTextRequiredFields = 'This field must be filled';
+const errorTextEmail = 'Typed in your email address incorrectly';
 
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
