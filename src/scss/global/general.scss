@@ -24,7 +24,7 @@ body {
 
 	&.hidden {
 		overflow: hidden;
-		@media (max-height: 746px) {
+		@media (min-width: 576px) and (max-height: 746px) {
 			padding-right: 15px;
 		}
 	}
